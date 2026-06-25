@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8080/api/students";
+const BASE_URL =
+  "https://student-database-backend-q7gm.onrender.com/api/students";
 
 // All backend API calls centralized here
 const api = {
