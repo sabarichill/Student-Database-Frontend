@@ -10,7 +10,7 @@ const emptyStudent = {
   phone: "",
   address: "",
   cgpa: "",
-  yearOfStudy: "",
+  yop: "",
 };
 
 function StudentForm({ student, onSave, onCancel }) {
@@ -28,14 +28,29 @@ function StudentForm({ student, onSave, onCancel }) {
   };
 
   const validate = () => {
-    const errs = {};
-    if (!form.name.trim()) errs.name = "Name is required";
-    if (!form.email.trim()) errs.email = "Email is required";
-    else if (!/\S+@\S+\.\S+/.test(form.email)) errs.email = "Invalid email";
-    if (form.cgpa && (form.cgpa < 0 || form.cgpa > 10))
-      errs.cgpa = "CGPA must be 0-10";
-    return errs;
-  };
+  const errs = {};
+
+  // Name
+  if (!form.name.trim()) errs.name = "Name is required";
+
+  // Email
+  if (!form.email.trim()) errs.email = "Email is required";
+  else if (!/\S+@\S+\.\S+/.test(form.email)) errs.email = "Invalid email";
+
+  // Phone - max 10 digits
+  if (form.phone && form.phone.length > 10) 
+    errs.phone = "Phone max 10 digits";
+
+  // YOP - must be 4 digit year
+  if (form.yop && (form.yop < 1000 || form.yop > 9999)) 
+    errs.yop = "YOP must be 4 digits (e.g. 2025)";
+
+  // CGPA
+  if (form.cgpa && (form.cgpa < 0 || form.cgpa > 10)) 
+    errs.cgpa = "CGPA must be 0-10";
+
+  return errs;
+};
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -123,14 +138,18 @@ function StudentForm({ student, onSave, onCancel }) {
               {errors.cgpa && <span className="error">{errors.cgpa}</span>}
             </div>
             <div className="field">
-              <label>Year of Study</label>
-              <input
-                name="yearOfStudy"
-                type="number"
-                value={form.yearOfStudy}
-                onChange={handleChange}
-                placeholder="1, 2, 3 or 4"
-              />
+  <label>YOP (Year of Passing)</label>
+  <input 
+    name="yop" 
+    type="number" 
+    value={form.yop} 
+    onChange={handleChange} 
+    placeholder="e.g. 2025"
+    maxLength="4"
+    min="1000"
+    max="9999"
+  />
+</div>
             </div>
             <div className="field full-width">
               <label>Address</label>
