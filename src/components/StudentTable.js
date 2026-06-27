@@ -37,8 +37,8 @@ function StudentTable({
             <th onClick={() => onSort("cgpa")} className="sortable">
               CGPA {arrow("cgpa")}
             </th>
-            <th onClick={() => onSort("yearOfStudy")} className="sortable">
-              Year {arrow("yearOfStudy")}
+            <th onClick={() => onSort('yop')} className="sortable">
+              YOP {arrow('yop')}</th>
             </th>
             <th>Phone</th>
             <th>Actions</th>
@@ -64,7 +64,7 @@ function StudentTable({
                   {s.cgpa}
                 </span>
               </td>
-              <td>{s.yearOfStudy}</td>
+              <td>{s.yop}</td>
               <td>{s.phone}</td>
               <td>
                 <button onClick={() => onEdit(s)} className="btn-edit">
