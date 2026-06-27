@@ -21,29 +21,19 @@ function StudentTable({
     <div className="table-wrapper">
       <table className="student-table">
         <thead>
-          <tr>
-            <th>#</th>
-            <th onClick={() => onSort("name")} className="sortable">
-              Name {arrow("name")}
-            </th>
-            <th>Email</th>
-            <th onClick={() => onSort("age")} className="sortable">
-              Age {arrow("age")}
-            </th>
-            <th onClick={() => onSort("department")} className="sortable">
-              Department {arrow("department")}
-            </th>
-            <th>Course</th>
-            <th onClick={() => onSort("cgpa")} className="sortable">
-              CGPA {arrow("cgpa")}
-            </th>
-            <th onClick={() => onSort('yop')} className="sortable">
-              YOP {arrow('yop')}
-            </th>
-            <th>Phone</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
+  <tr>
+    <th>#</th>
+    <th onClick={() => onSort('name')} className="sortable">Name {arrow('name')}</th>
+    <th>Email</th>
+    <th onClick={() => onSort('age')} className="sortable">Age {arrow('age')}</th>
+    <th onClick={() => onSort('department')} className="sortable">Department {arrow('department')}</th>
+    <th>Course</th>
+    <th onClick={() => onSort('cgpa')} className="sortable">CGPA {arrow('cgpa')}</th>
+    <th onClick={() => onSort('yop')} className="sortable">YOP {arrow('yop')}</th>
+    <th>Phone</th>
+    <th>Actions</th>
+  </tr>
+</thead>
         <tbody>
           {students.map((s, i) => (
             <tr key={s.id}>
