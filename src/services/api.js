@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const BASE_URL =
-  "https://student-database-backend-q7gm.onrender.com/api/students";
+const BASE_URL = 'https://student-database-backend-rpoe.onrender.com/api/students';
 
 const api = {
   getAll: () => axios.get(BASE_URL),
